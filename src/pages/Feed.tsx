@@ -10,7 +10,7 @@ content: string,
 slug: string
 }
 
-export default function Feed({ posts }:Post[]) {
+export default function Feed(props:any) {
 const [searchTerm, setSearchTerm] = useState("")
 return (
     <div>
@@ -20,7 +20,7 @@ return (
       <div>
         <SearchBar func={(e:any)=> setSearchTerm(e.target.value)}/>
       </div>
-      {posts.filter((val:any)=> {
+      {props.posts.filter((val:any)=> {
       if(searchTerm === ""){
         return val
       }else if (val.content.toLowerCase().includes(searchTerm.toLowerCase())) {
