@@ -28,6 +28,7 @@ const UPDATE_POST = gql`
       content
       slug
     }
+    publishPost(where: {slug: $slug})
   }
 `;
 
