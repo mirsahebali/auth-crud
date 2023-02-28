@@ -31,9 +31,9 @@ const UPDATE_POST = gql`
   }
 `;
 
-function EditPostPage() {
+export default function EditPostPage() {
   const router = useRouter();
-  const [post, setPost] = useState({});
+  const [post, setPost] = useState({slug: "", title: "", content: ""});
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -56,7 +56,7 @@ function EditPostPage() {
         title: event.target.title.value,
         content: event.target.content.value,
       });
-      console.log(post.slug);
+     
       
       post.slug = post.title.toString().toLowerCase().replace(/\s+/g, "-").replace(/[^\w\-]+/g, "").replace(/\-\-+/g, "-").replace(/^-+/, "").replace(/-+$/, "")
       router.push(`/post/${data.updatePost.slug}`);
@@ -85,4 +85,3 @@ function EditPostPage() {
   );
 }
 
-export default EditPostPage;
