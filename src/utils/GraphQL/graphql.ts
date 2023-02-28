@@ -16,3 +16,14 @@ mutation deletion($slug: String!) {
   }
 }
 `
+
+export const updatePost = gql`
+  mutation UpdatePost($slug: String!, $title: String!, $content: String!) {
+    updatePost(slug: $slug, title: $title, content: $content) {
+      id
+      title
+      content
+      slug
+    }
+  }
+`;

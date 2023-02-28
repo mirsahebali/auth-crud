@@ -1,15 +1,11 @@
-
 import BlogCard from "./BlogCard";
 import SearchBar from "./SearchBar";
 import Link from "next/link";
 import { useState } from "react";
 
-
 export default function Feed({ posts }:any) {
 const [searchTerm, setSearchTerm] = useState("")
-
-
-  return (
+return (
     <div>
       <div className="text-5xl text-blue-700 flex justify-center p-5 font-bold hover:scale-90 duration-300 hover:text-[#2B3467]">
         AuthCRUD

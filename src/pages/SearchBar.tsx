@@ -1,8 +1,6 @@
 import Link from "next/link";
-import { useState } from "react";
 
 export default function SearchBar({ data, func }: any) {
-const [searchTerm, setSearchTerm] = useState("")
 
 
   return (

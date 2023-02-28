@@ -59,10 +59,10 @@ const CreateBlogPage = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center p-10">
-      <h1 className="text-blue-800 text-4xl p-10">Create a new blog post</h1>
+    <div className="flex flex-col justify-center items-center p-6">
+      <h1 className="text-blue-800 text-4xl p-7">Create a new blog post</h1>
       <form onSubmit={handleSubmit}>
-        <div className="text-2xl hover:scale-110 duration-300 p-10 flex flex-col">
+        <div className="text-2xl hover:scale-110 duration-300 p-7 flex flex-col">
           <label htmlFor="title">Title:</label>
           <input
             type="text"
@@ -72,7 +72,7 @@ const CreateBlogPage = () => {
             onChange={handleTitleChange}
           />
         </div>
-        <div className="text-2xl hover:scale-110 duration-300 p-10 flex flex-col">
+        <div className="text-2xl hover:scale-110 duration-300 p-7 flex flex-col">
           <label htmlFor="slug">Slug:</label>
           <input
             type="text"
@@ -84,13 +84,15 @@ const CreateBlogPage = () => {
             value={slug}
           />
         </div>
-        <div className="text-2xl hover:scale-110 duration-300 flex flex-col p-10">
+        <div className="text-2xl hover:scale-110 duration-300 flex flex-col p-7">
           <label htmlFor="content">Content:</label>
           <textarea
             id="content"
             value={content}
             className="enabled:border-2 enabled:border-black enabled:rounded enabled:text-xs"
             onChange={handleContentChange}
+            rows={4}
+            cols={50}
           />
         </div>
 
