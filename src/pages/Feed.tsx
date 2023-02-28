@@ -3,7 +3,14 @@ import SearchBar from "./SearchBar";
 import Link from "next/link";
 import { useState } from "react";
 
-export default function Feed({ posts }:any) {
+interface Post {
+id: number,
+title: string,
+content: string,
+slug: string
+}
+
+export default function Feed({ posts }:Post[]) {
 const [searchTerm, setSearchTerm] = useState("")
 return (
     <div>
