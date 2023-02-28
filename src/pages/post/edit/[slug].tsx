@@ -28,7 +28,10 @@ const UPDATE_POST = gql`
       content
       slug
     }
-    publishPost(where: {slug: $slug})
+    publishPost(where: {slug: $slug}){
+    id
+    
+    }
   }
 `;
 
