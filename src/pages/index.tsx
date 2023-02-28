@@ -4,7 +4,6 @@ import styles from "@/styles/Home.module.css";
 import { GraphQLClient, gql } from "graphql-request";
 
 import Feed from "./Feed";
-import Repos from "./Repos";
 const graphcms = new GraphQLClient(
   "https://api-ap-south-1.hygraph.com/v2/clejz1pne0v3h01uo2sgo5ben/master"
 );
@@ -52,7 +51,6 @@ export default function Home({ posts }: any) {
       </Head>
       <main>
         <Feed posts={posts} />
-        <Repos/>
       </main>
     </>
   );
