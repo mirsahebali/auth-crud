@@ -1,9 +1,14 @@
 
 import Head from "next/head";
-import styles from "@/styles/Home.module.css";
 import { GraphQLClient, gql } from "graphql-request";
+import BlogCard from "./BlogCard";
+import SearchBar from "./SearchBar";
+import Link from "next/link";
+import { useState } from "react";
 
-import Feed from "./Feed";
+
+
+
 const graphcms = new GraphQLClient(
   "https://api-ap-south-1.hygraph.com/v2/clejz1pne0v3h01uo2sgo5ben/master"
 );
@@ -39,6 +44,7 @@ export async function getStaticProps() {
 }
 
 export default function Home({ posts }: any) {
+const [searchTerm, setSearchTerm] = useState("")
   
   
   return (
@@ -50,7 +56,34 @@ export default function Home({ posts }: any) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Feed posts={posts} />
+      <div>
+      <div className="text-5xl text-blue-700 flex justify-center p-5 font-bold hover:scale-90 duration-300 hover:text-[#2B3467]">
+        AuthCRUD
+      </div>
+      <div>
+        <SearchBar func={(e:any)=> setSearchTerm(e.target.value)}/>
+      </div>
+      {posts.filter((val:any)=> {
+      if(searchTerm === ""){
+        return val
+      }else if (val.content.toLowerCase().includes(searchTerm.toLowerCase())) {
+        return val
+      }
+      
+    }
+    ).map((post: any) => {
+        return (
+          <div key={post.id}>
+            <Link
+              href={`post/${post.slug}`}
+              className="blog-card flex justify-center p-5"
+            >
+              <BlogCard title={post.title} content={post.content} />
+            </Link>
+          </div>
+        );
+      })}
+    </div>
       </main>
     </>
   );
